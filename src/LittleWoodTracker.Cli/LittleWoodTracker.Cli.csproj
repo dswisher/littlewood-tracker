@@ -11,4 +11,11 @@
         <PackageReference Include="CommandLineParser" Version="2.9.1" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.10" />
     </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Data\Houses.json" />
+      <EmbeddedResource Include="Data\Structures.json" />
+      <None Remove="Data\Crops.json" />
+      <EmbeddedResource Include="Data\Crops.json" />
+    </ItemGroup>
 </Project>

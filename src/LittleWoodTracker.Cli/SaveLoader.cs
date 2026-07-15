@@ -27,7 +27,7 @@ namespace LittleWoodTracker.Cli
             }
             else
             {
-                throw new NotImplementedException($"Save file path is not implemented for this operating system.");
+                throw new NotImplementedException("Save file path is not implemented for this operating system.");
             }
 
             using var stream = File.OpenRead(path);
