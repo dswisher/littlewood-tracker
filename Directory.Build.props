@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <!-- Enable all recommended CA (code quality) rules as warnings -->
+    <AnalysisMode>Recommended</AnalysisMode>
+
+    <!-- Lock rule set to this SDK version so upgrades don't silently add new rules -->
+    <AnalysisLevel>10.0-Recommended</AnalysisLevel>
+
+    <!-- Enforce IDE (code style) rules at build time, not just in the IDE -->
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <!-- Treat all analysis warnings as errors so violations break the build -->
+    <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
+  </PropertyGroup>
+</Project>
