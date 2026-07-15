@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CommandLine;
+using LittleWoodTracker.Cli.Models;
 
 namespace LittleWoodTracker.Cli
 {
@@ -42,12 +43,57 @@ namespace LittleWoodTracker.Cli
                 PrintMissing("Structures", gameData.Structures, parsed.MapItems);
                 PrintMissing("Crops", gameData.Crops, parsed.MapItems);
 
+                Console.WriteLine("Achievements:");
+                PrintNumericAchievement(gameData, "itemsGathered", save.ItemsGathered);
+                PrintNumericAchievement(gameData, "treesChopped", save.TreesChopped);
+                PrintNumericAchievement(gameData, "oresMined", save.OresMined);
+                PrintNumericAchievement(gameData, "fishCaught", save.FishCaught);
+                PrintNumericAchievement(gameData, "bugsCaught", save.BugsCaught);
+                PrintNumericAchievement(gameData, "cropsHarvested", save.CropsHarvested);
+                PrintNumericAchievement(gameData, "itemsCrafted", save.ItemsCrafted);
+                PrintNumericAchievement(gameData, "itemsSold", save.ItemsSold);
+                PrintNumericAchievement(gameData, "questsCompleted", save.QuestsCompleted);
+
+                // TODO - parse the number of townsfolk met, and add that achievement
+
                 return 0;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
                 return 1;
+            }
+        }
+
+
+        private static void PrintNumericAchievement(GameData gameData, string key, int val)
+        {
+            var entry = gameData.NumericAchievements.FirstOrDefault(x => x.Key == key);
+
+            if (entry == null)
+            {
+                throw new KeyNotFoundException($"Numeric achievement key {key} not found");
+            }
+
+            var currentThreshold = entry.Thresholds.LastOrDefault(x => x.Threshold <= val);
+            var nextThreshold = entry.Thresholds.FirstOrDefault(x => x.Threshold > val);
+
+            if (nextThreshold == null && currentThreshold != null)
+            {
+                Console.WriteLine($"    {entry.Name}: {currentThreshold.Name} (max, {val}/{currentThreshold.Threshold})");
+            }
+            else if (nextThreshold != null && currentThreshold != null)
+            {
+                Console.WriteLine($"    {entry.Name}: {currentThreshold.Name} ({currentThreshold.Threshold}) -> {nextThreshold.Name} ({val}/{nextThreshold.Threshold})");
+            }
+            else if (nextThreshold != null && currentThreshold == null)
+            {
+                Console.WriteLine($"    {entry.Name}: {nextThreshold.Name} ({val}/{nextThreshold.Threshold})");
+            }
+            else
+            {
+                // Both null?
+                Console.WriteLine($"    {entry.Name}: both thresholds null!?!");
             }
         }
 

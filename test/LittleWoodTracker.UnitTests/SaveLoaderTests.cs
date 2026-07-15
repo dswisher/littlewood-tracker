@@ -41,6 +41,17 @@ namespace LittleWoodTracker.UnitTests
             save.PlayerName.Should().Be("Bruno");
             save.DaysPlayed.Should().Be(125);
             save.Steps.Should().Be(98901);
+
+            save.ItemsGathered.Should().Be(1230);
+            save.TreesChopped.Should().Be(1372);
+            save.OresMined.Should().Be(1293);
+            save.FishCaught.Should().Be(428);
+            save.BugsCaught.Should().Be(400);
+            save.CropsHarvested.Should().Be(960);
+            save.ItemsCrafted.Should().Be(925);
+            save.ItemsSold.Should().Be(2049);
+            save.QuestsCompleted.Should().Be(61);
+
             save.MapObjectString?.Length.Should().BeGreaterThan(100);    // arbitrary number
         }
 

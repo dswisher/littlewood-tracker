@@ -1,0 +1,112 @@
+[
+    {
+        "Name": "Gatherer",
+        "Key": "itemsGathered",
+        "Thresholds": [
+            { "Name": "Adept Gatherer",       "Threshold": 100  },
+            { "Name": "Heroic Gatherer",       "Threshold": 500  },
+            { "Name": "Master Gatherer",       "Threshold": 1000 },
+            { "Name": "Grandmaster Gatherer",  "Threshold": 2500 },
+            { "Name": "Gathering Prodigy",     "Threshold": 4000 }
+        ]
+    },
+    {
+        "Name": "Woodcutter",
+        "Key": "treesChopped",
+        "Thresholds": [
+            { "Name": "Adept Woodcutter",       "Threshold": 150  },
+            { "Name": "Heroic Woodcutter",      "Threshold": 750  },
+            { "Name": "Master Woodcutter",      "Threshold": 1500 },
+            { "Name": "Grandmaster Woodcutter", "Threshold": 3500 },
+            { "Name": "Woodcutting Prodigy",    "Threshold": 6000 }
+        ]
+    },
+    {
+        "Name": "Miner",
+        "Key": "oresMined",
+        "Thresholds": [
+            { "Name": "Adept Miner",       "Threshold": 150  },
+            { "Name": "Heroic Miner",      "Threshold": 750  },
+            { "Name": "Master Miner",      "Threshold": 1500 },
+            { "Name": "Grandmaster Miner", "Threshold": 3500 },
+            { "Name": "Mining Prodigy",    "Threshold": 6000 }
+        ]
+    },
+    {
+        "Name": "Fisherman",
+        "Key": "fishCaught",
+        "Thresholds": [
+            { "Name": "Adept Fisherman",       "Threshold": 100  },
+            { "Name": "Heroic Fisherman",      "Threshold": 250  },
+            { "Name": "Master Fisherman",      "Threshold": 500  },
+            { "Name": "Grandmaster Fisherman", "Threshold": 1000 },
+            { "Name": "Fishing Prodigy",       "Threshold": 2500 }
+        ]
+    },
+    {
+        "Name": "Bug Catcher",
+        "Key": "bugsCaught",
+        "Thresholds": [
+            { "Name": "Adept Bug Catcher",    "Threshold": 100  },
+            { "Name": "Heroic Bug Catcher",   "Threshold": 250  },
+            { "Name": "Master Bug Catcher",   "Threshold": 500  },
+            { "Name": "Grandmaster Catcher",  "Threshold": 1000 },
+            { "Name": "Bug Catching Prodigy", "Threshold": 2500 }
+        ]
+    },
+    {
+        "Name": "Farmer",
+        "Key": "cropsHarvested",
+        "Thresholds": [
+            { "Name": "Adept Farmer",       "Threshold": 100  },
+            { "Name": "Heroic Farmer",      "Threshold": 500  },
+            { "Name": "Master Farmer",      "Threshold": 1000 },
+            { "Name": "Grandmaster Farmer", "Threshold": 2500 },
+            { "Name": "Farming Prodigy",    "Threshold": 4000 }
+        ]
+    },
+    {
+        "Name": "Crafter",
+        "Key": "itemsCrafted",
+        "Thresholds": [
+            { "Name": "Adept Crafter",       "Threshold": 100  },
+            { "Name": "Heroic Crafter",      "Threshold": 250  },
+            { "Name": "Master Crafter",      "Threshold": 500  },
+            { "Name": "Grandmaster Crafter", "Threshold": 1000 },
+            { "Name": "Crafting Prodigy",    "Threshold": 2500 }
+        ]
+    },
+    {
+        "Name": "Merchant",
+        "Key": "itemsSold",
+        "Thresholds": [
+            { "Name": "Adept Merchant",       "Threshold": 50   },
+            { "Name": "Heroic Merchant",      "Threshold": 100  },
+            { "Name": "Master Merchant",      "Threshold": 300  },
+            { "Name": "Grandmaster Merchant", "Threshold": 700  },
+            { "Name": "Merchant Prodigy",     "Threshold": 1500 }
+        ]
+    },
+    {
+        "Name": "Quester",
+        "Key": "questsCompleted",
+        "Thresholds": [
+            { "Name": "Adept Quester",       "Threshold": 10  },
+            { "Name": "Heroic Quester",      "Threshold": 25  },
+            { "Name": "Master Quester",      "Threshold": 50  },
+            { "Name": "Grandmaster Quester", "Threshold": 100 },
+            { "Name": "Questing Prodigy",    "Threshold": 150 }
+        ]
+    },
+    {
+        "Name": "Friend Maker",
+        "Key": "townsfolkCount",
+        "Thresholds": [
+            { "Name": "Adept Friend Maker",       "Threshold": 3  },
+            { "Name": "Heroic Friend Maker",      "Threshold": 5  },
+            { "Name": "Master Friend Maker",      "Threshold": 10 },
+            { "Name": "Grandmaster Friend Maker", "Threshold": 12 },
+            { "Name": "Friend Making Prodigy",    "Threshold": 15 }
+        ]
+    }
+]

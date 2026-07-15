@@ -10,5 +10,7 @@ namespace LittleWoodTracker.Cli.Models
         public HashSet<string> Houses { get; } = [];
         public HashSet<string> Structures { get; } = [];
         public HashSet<string> Crops { get; } = [];
+
+        public List<NumericAchievement> NumericAchievements { get; } = [];
     }
 }

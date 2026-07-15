@@ -8,21 +8,66 @@ namespace LittleWoodTracker.Cli.Models
         /// <summary>
         /// The name of the player.
         /// </summary>
-        public string? PlayerName { get; set; }
+        public required string PlayerName { get; set; }
 
         /// <summary>
         /// The number of days played so far.
         /// </summary>
-        public int? DaysPlayed { get; set; }
+        public required int DaysPlayed { get; set; }
 
         /// <summary>
         /// The number of steps taken so far.
         /// </summary>
-        public int? Steps { get; set; }
+        public required int Steps { get; set; }
 
         /// <summary>
         /// A slash-separated list of objects on the map.
         /// </summary>
-        public string? MapObjectString { get; set; }
+        public required string MapObjectString { get; set; }
+
+        /// <summary>
+        /// The number of items gathered so far.
+        /// </summary>
+        public required int ItemsGathered { get; set; }
+
+        /// <summary>
+        /// The number of trees chopped so far.
+        /// </summary>
+        public required int TreesChopped { get; set; }
+
+        /// <summary>
+        /// The number of ores mined so far.
+        /// </summary>
+        public required int OresMined { get; set; }
+
+        /// <summary>
+        /// The number of fish caught so far.
+        /// </summary>
+        public required int FishCaught { get; set; }
+
+        /// <summary>
+        /// The number of bugs caught so far.
+        /// </summary>
+        public required int BugsCaught { get; set; }
+
+        /// <summary>
+        /// The number of crops harvested so far.
+        /// </summary>
+        public required int CropsHarvested { get; set; }
+
+        /// <summary>
+        /// The number of items crafted so far.
+        /// </summary>
+        public required int ItemsCrafted { get; set; }
+
+        /// <summary>
+        /// The number of items sold so far.
+        /// </summary>
+        public required int ItemsSold { get; set; }
+
+        /// <summary>
+        /// The number of quests completed so far.
+        /// </summary>
+        public required int QuestsCompleted { get; set; }
     }
 }

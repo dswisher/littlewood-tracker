@@ -16,22 +16,24 @@ namespace LittleWoodTracker.Cli
             var data = new GameData();
 
             // Load all the bits and bobs
-            data.Houses.UnionWith(LoadEmbeddedList("Houses"));
-            data.Structures.UnionWith(LoadEmbeddedList("Structures"));
-            data.Crops.UnionWith(LoadEmbeddedList("Crops"));
+            data.Houses.UnionWith(LoadEmbeddedList<string>("Houses"));
+            data.Structures.UnionWith(LoadEmbeddedList<string>("Structures"));
+            data.Crops.UnionWith(LoadEmbeddedList<string>("Crops"));
+
+            data.NumericAchievements.AddRange(LoadEmbeddedList<NumericAchievement>("NumericAchievements"));
 
             // Return what we've built
             return data;
         }
 
 
-        private static IEnumerable<string> LoadEmbeddedList(string resourceName)
+        private static IEnumerable<T> LoadEmbeddedList<T>(string resourceName)
         {
             using (var stream = OpenEmbedded(resourceName))
             using (var reader = new StreamReader(stream))
             {
                 var content = reader.ReadToEnd();
-                return JsonSerializer.Deserialize<IEnumerable<string>>(content) ?? new List<string>();
+                return JsonSerializer.Deserialize<IEnumerable<T>>(content) ?? new List<T>();
             }
         }
 
