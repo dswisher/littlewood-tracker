@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Include="SaveFiles\fresh-start.json" />
+      <EmbeddedResource Include="SaveFiles\shadow-d1-s3.json" />
       <EmbeddedResource Include="SaveFiles\bruno-d125-s98901.json" />
       <EmbeddedResource Include="SaveFiles\bruno-d125-s99042.json" />
     </ItemGroup>

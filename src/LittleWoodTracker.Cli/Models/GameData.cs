@@ -11,6 +11,19 @@ namespace LittleWoodTracker.Cli.Models
         public HashSet<string> Structures { get; } = [];
         public HashSet<string> Crops { get; } = [];
 
+        public Dictionary<int, string> ItemNames { get; } = [];
+        public Dictionary<int, string> BlueprintNames { get; } = [];
+
         public List<NumericAchievement> NumericAchievements { get; } = [];
+
+        public string GetItemName(int id)
+        {
+            return ItemNames.GetValueOrDefault(id, "n/a");
+        }
+
+        public string GetBlueprintName(int id)
+        {
+            return BlueprintNames.GetValueOrDefault(id, "n/a");
+        }
     }
 }

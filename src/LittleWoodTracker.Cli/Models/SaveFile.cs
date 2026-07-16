@@ -69,5 +69,18 @@ namespace LittleWoodTracker.Cli.Models
         /// The number of quests completed so far.
         /// </summary>
         public required int QuestsCompleted { get; set; }
+
+        /// <summary>
+        /// The items in the casino spinner.
+        /// </summary>
+        /// <remarks>
+        /// If the ID > 1000, it is a blueprint (subtract 1000 to find it).
+        /// </remarks>
+        public required int[] CasinoSpinId { get; set; }
+
+        /// <summary>
+        /// The items in the casino slot machine.
+        /// </summary>
+        public required int[] CasinoSlotId { get; set; }
     }
 }

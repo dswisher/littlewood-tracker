@@ -13,9 +13,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Include="Data\Houses.json" />
-      <EmbeddedResource Include="Data\Structures.json" />
-      <EmbeddedResource Include="Data\Crops.json" />
       <EmbeddedResource Include="Data\NumericAchievements.json" />
+      <EmbeddedResource Include="Data\BlueprintList.json" />
+      <EmbeddedResource Include="Data\ItemList.json" />
     </ItemGroup>
 </Project>

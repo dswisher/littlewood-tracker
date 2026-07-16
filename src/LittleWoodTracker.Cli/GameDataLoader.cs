@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using LittleWoodTracker.Cli.Models;
 
@@ -15,15 +16,42 @@ namespace LittleWoodTracker.Cli
             // Create the empty class
             var data = new GameData();
 
+            // Load the item lists
+            var bluePrints = LoadEmbeddedList<ItemListEntry>("BlueprintList").ToList();
+            var items = LoadEmbeddedList<ItemListEntry>("ItemList").ToList();
+
+            PopulateDictionary(data.BlueprintNames, bluePrints);
+            PopulateDictionary(data.ItemNames, items);
+
             // Load all the bits and bobs
-            data.Houses.UnionWith(LoadEmbeddedList<string>("Houses"));
-            data.Structures.UnionWith(LoadEmbeddedList<string>("Structures"));
-            data.Crops.UnionWith(LoadEmbeddedList<string>("Crops"));
+            data.Houses.UnionWith(ExtractItemList(bluePrints, "House"));
+            data.Structures.UnionWith(ExtractItemList(bluePrints, "Structure"));
+            data.Crops.UnionWith(ExtractItemList(bluePrints, "Crop"));
 
             data.NumericAchievements.AddRange(LoadEmbeddedList<NumericAchievement>("NumericAchievements"));
 
             // Return what we've built
             return data;
+        }
+
+
+        private static void PopulateDictionary(Dictionary<int, string> dictionary, List<ItemListEntry> itemEntries)
+        {
+            foreach (var entry in itemEntries)
+            {
+                foreach (var pair in entry.Items)
+                {
+                    dictionary.Add(pair.Id, pair.Name);
+                }
+            }
+        }
+
+
+        private static IEnumerable<string> ExtractItemList(List<ItemListEntry> items, string categoryName)
+        {
+            var entry = items.FirstOrDefault(e => e.Name == categoryName);
+
+            return entry == null ? throw new KeyNotFoundException($"Category '{categoryName}' not found.") : entry.Items.Select(x => x.Name);
         }
 
 

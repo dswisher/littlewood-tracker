@@ -9,11 +9,9 @@ namespace LittleWoodTracker.Cli.Models
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Deserialized")]
     [SuppressMessage("ReSharper", "CollectionNeverUpdated.Global", Justification = "Deserialized")]
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "Deserialized")]
-    public class NumericAchievement
+    public class ItemListEntry
     {
         public required string Name { get; set; }
-        public required string Key { get; set; }
-
-        public required List<NumericThreshold> Thresholds { get; set; }
+        public required List<ItemListItem> Items { get; set; }
     }
 }

@@ -12,11 +12,11 @@ namespace LittleWoodTracker.UnitTests
     public class SaveLoaderTests
     {
         [Fact]
-        public void CanLoadFreshStart()
+        public void CanLoadShadowDay1Step3()
         {
             // Act
             SaveFile save;
-            using (var stream = OpenEmbedded("fresh-start"))
+            using (var stream = OpenEmbedded("shadow-d1-s3"))
             {
                 save = SaveLoader.LoadSave(stream);
             }
@@ -24,6 +24,7 @@ namespace LittleWoodTracker.UnitTests
             // Assert
             save.PlayerName.Should().Be("Shadow");
             save.DaysPlayed.Should().Be(1);
+            save.Steps.Should().Be(3);
         }
 
 
@@ -52,7 +53,7 @@ namespace LittleWoodTracker.UnitTests
             save.ItemsSold.Should().Be(2049);
             save.QuestsCompleted.Should().Be(61);
 
-            save.MapObjectString?.Length.Should().BeGreaterThan(100);    // arbitrary number
+            save.MapObjectString.Length.Should().BeGreaterThan(100);    // arbitrary number
         }
 
 

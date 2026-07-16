@@ -15,7 +15,7 @@ namespace LittleWoodTracker.Cli
         {
             return Parser.Default.ParseArguments<Options>(args)
                 .MapResult(
-                    options => Run(options),
+                    Run,
                     errors =>
                     {
                         foreach (var e in errors)
@@ -56,6 +56,8 @@ namespace LittleWoodTracker.Cli
 
                 // TODO - parse the number of townsfolk met, and add that achievement
 
+                PrintCasinoInfo(gameData, save);
+
                 return 0;
             }
             catch (Exception ex)
@@ -66,14 +68,56 @@ namespace LittleWoodTracker.Cli
         }
 
 
+        private static string GetCasinoName(GameData gameData, int id)
+        {
+            if (id > 0 && id < 1000)
+            {
+                return gameData.GetItemName(id);
+            }
+
+            if (id >= 1000)
+            {
+                var name = gameData.GetBlueprintName(id - 1000);
+
+                return $"{name} blueprint";
+            }
+
+            return "Dewdrops";
+        }
+
+
+        private static void PrintCasinoInfo(GameData gameData, SaveFile save)
+        {
+            if (save.CasinoSlotId.Length > 0)
+            {
+                Console.WriteLine("Casino Slot Machine Items");
+
+                foreach (var id in save.CasinoSlotId.OrderBy(x => x))
+                {
+                    var name = GetCasinoName(gameData, id);
+
+                    Console.WriteLine($"    {id,4} - {name}");
+                }
+            }
+
+            if (save.CasinoSpinId.Length > 0)
+            {
+                Console.WriteLine("Casino Spinner Items");
+
+                foreach (var id in save.CasinoSpinId.OrderBy(x => x))
+                {
+                    var name = GetCasinoName(gameData, id);
+
+                    Console.WriteLine($"    {id,4} - {name}");
+                }
+            }
+        }
+
+
         private static void PrintNumericAchievement(GameData gameData, string key, int val)
         {
-            var entry = gameData.NumericAchievements.FirstOrDefault(x => x.Key == key);
-
-            if (entry == null)
-            {
-                throw new KeyNotFoundException($"Numeric achievement key {key} not found");
-            }
+            var entry = gameData.NumericAchievements.FirstOrDefault(x => x.Key == key)
+                        ?? throw new KeyNotFoundException($"Numeric achievement key {key} not found");
 
             var currentThreshold = entry.Thresholds.LastOrDefault(x => x.Threshold <= val);
             var nextThreshold = entry.Thresholds.FirstOrDefault(x => x.Threshold > val);
