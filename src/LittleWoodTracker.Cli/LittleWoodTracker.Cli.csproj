@@ -5,6 +5,10 @@
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>lwt</ToolCommandName>
+        <PackageId>LittleWoodTracker.Cli</PackageId>
+        <Version>1.0.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
