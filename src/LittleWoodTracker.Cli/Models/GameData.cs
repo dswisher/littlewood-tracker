@@ -17,6 +17,11 @@ namespace LittleWoodTracker.Cli.Models
         public List<NumericAchievement> NumericAchievements { get; } = [];
 
         /// <summary>
+        /// All 24 travelers, keyed by their index.
+        /// </summary>
+        public Dictionary<int, TravelerInfo> TravelersByIndex { get; } = [];
+
+        /// <summary>
         /// All known donation targets, keyed by their structureUpgradeEXP array index.
         /// </summary>
         public Dictionary<int, DonationTargetInfo> DonationTargetsByIndex { get; } = [];

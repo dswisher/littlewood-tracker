@@ -1,0 +1,242 @@
+[
+    {
+        "Index": 0,
+        "Name": "Wedge, the Merchant",
+        "BookTitle": "Floating Continents",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 240, "Quantity": 10  } ],
+            [ { "ItemId": 240, "Quantity": 50  } ],
+            [ { "ItemId": 240, "Quantity": 150 } ]
+        ]
+    },
+    {
+        "Index": 1,
+        "Name": "Primrose, the Cleric",
+        "BookTitle": "The Cataclysm",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 283, "Quantity": 3  } ],
+            [ { "ItemId": 283, "Quantity": 15 }, { "ItemId": 303, "Quantity": 5  } ],
+            [ { "ItemId": 282, "Quantity": 5  } ]
+        ]
+    },
+    {
+        "Index": 2,
+        "Name": "Datz, the Ice Mage",
+        "BookTitle": "The World Below",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 160, "Quantity": 10 } ],
+            [ { "ItemId": 161, "Quantity": 15 } ],
+            [ { "ItemId": 162, "Quantity": 15 }, { "ItemId": 163, "Quantity": 15 } ]
+        ]
+    },
+    {
+        "Index": 3,
+        "Name": "Tyrus, the Berserker",
+        "BookTitle": "The Scourge",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 168, "Quantity": 3  } ],
+            [ { "ItemId": 165, "Quantity": 10 } ],
+            [ { "ItemId": 166, "Quantity": 10 }, { "ItemId": 167, "Quantity": 10 } ]
+        ]
+    },
+    {
+        "Index": 4,
+        "Name": "Lelana, the Musician",
+        "BookTitle": "Other Continents",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 200, "Quantity": 10 } ],
+            [ { "ItemId": 201, "Quantity": 15 } ],
+            [ { "ItemId": 202, "Quantity": 15 }, { "ItemId": 203, "Quantity": 15 } ]
+        ]
+    },
+    {
+        "Index": 5,
+        "Name": "Dart, the Thief",
+        "BookTitle": "Port City Deluca",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 204, "Quantity": 5 } ],
+            [ { "ItemId": 209, "Quantity": 3 } ],
+            [ { "ItemId": 210, "Quantity": 3 }, { "ItemId": 211, "Quantity": 3 } ]
+        ]
+    },
+    {
+        "Index": 6,
+        "Name": "Kylocke, the Wizard",
+        "BookTitle": "Alexandria, the Prosperous",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 241, "Quantity": 5 }, { "ItemId": 243, "Quantity": 5 } ],
+            [ { "ItemId": 242, "Quantity": 1 }, { "ItemId": 244, "Quantity": 1 } ],
+            [ { "ItemId": 127, "Quantity": 15 }, { "ItemId": 128, "Quantity": 15 } ]
+        ]
+    },
+    {
+        "Index": 7,
+        "Name": "Juliet, the Dancer",
+        "BookTitle": "Dirboros, The Desert",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 404, "Quantity": 3 } ],
+            [ { "ItemId": 428, "Quantity": 3 } ],
+            [ { "ItemId": 438, "Quantity": 3 } ]
+        ]
+    },
+    {
+        "Index": 8,
+        "Name": "Oogaga, the Barbarian",
+        "BookTitle": "Glaive, The Gold City",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 245, "Quantity": 5 }, { "ItemId": 247, "Quantity": 5 } ],
+            [ { "ItemId": 246, "Quantity": 1 }, { "ItemId": 248, "Quantity": 1 } ],
+            [ { "ItemId": 147, "Quantity": 15 }, { "ItemId": 148, "Quantity": 15 } ]
+        ]
+    },
+    {
+        "Index": 9,
+        "Name": "Promecia, the Balloon Pilot",
+        "BookTitle": "Dewdrops - Solemn's Currency",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 411, "Quantity": 3 } ],
+            [ { "ItemId": 435, "Quantity": 3 } ],
+            [ { "ItemId": 446, "Quantity": 3 } ]
+        ]
+    },
+    {
+        "Index": 10,
+        "Name": "Thorn, the Cactus Knight",
+        "BookTitle": "Airships and Air Balloons",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 288, "Quantity": 3 }, { "ItemId": 255, "Quantity": 3 } ],
+            [ { "ItemId": 285, "Quantity": 3 }, { "ItemId": 286, "Quantity": 3 } ],
+            [ { "ItemId": 180, "Quantity": 3 }, { "ItemId": 181, "Quantity": 3 } ]
+        ]
+    },
+    {
+        "Index": 11,
+        "Name": "Lloyd, the Spellcrafter",
+        "BookTitle": "The Dust Caverns",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 253, "Quantity": 3  }, { "ItemId": 296, "Quantity": 25 } ],
+            [ { "ItemId": 256, "Quantity": 1  }, { "ItemId": 250, "Quantity": 1  } ],
+            [ { "ItemId": 220, "Quantity": 3  }, { "ItemId": 221, "Quantity": 3  } ]
+        ]
+    },
+    {
+        "Index": 12,
+        "Name": "Raven, the Elementalist",
+        "BookTitle": "A Study on Wompers",
+        "Source": "Dust Cavern",
+        "Requirements": null
+    },
+    {
+        "Index": 13,
+        "Name": "Asher, the Specter",
+        "BookTitle": "Magical Dust: Properties & Uses",
+        "Source": "Dust Cavern",
+        "Requirements": null
+    },
+    {
+        "Index": 14,
+        "Name": "Hadrian, the Gladiator",
+        "BookTitle": "The Endless Forest",
+        "Source": "Dust Cavern",
+        "Requirements": null
+    },
+    {
+        "Index": 15,
+        "Name": "Pokidoki, the Treemage",
+        "BookTitle": "Mysteries & Dark Trees",
+        "Source": "Endless Forest",
+        "Requirements": null
+    },
+    {
+        "Index": 16,
+        "Name": "Robin, the Trapper",
+        "BookTitle": "The Lightning Mages",
+        "Source": "Endless Forest",
+        "Requirements": null
+    },
+    {
+        "Index": 17,
+        "Name": "Tara, the Enchantress",
+        "BookTitle": "The Magical Academy",
+        "Source": "Endless Forest",
+        "Requirements": null
+    },
+    {
+        "Index": 18,
+        "Name": "Gareth, the Swordsmith",
+        "BookTitle": "Properties of Magic",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 100, "Quantity": 10 } ],
+            [ { "ItemId": 101, "Quantity": 10 } ],
+            [ { "ItemId": 102, "Quantity": 10 } ]
+        ]
+    },
+    {
+        "Index": 19,
+        "Name": "Freya, the Druid",
+        "BookTitle": "The Dark Wizard",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 60, "Quantity": 10 } ],
+            [ { "ItemId": 61, "Quantity": 10 } ],
+            [ { "ItemId": 62, "Quantity": 10 } ]
+        ]
+    },
+    {
+        "Index": 20,
+        "Name": "Woz, the Seer",
+        "BookTitle": "Powers of the Dark Wizard",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 120, "Quantity": 10 } ],
+            [ { "ItemId": 123, "Quantity": 15 } ],
+            [ { "ItemId": 126, "Quantity": 15 } ]
+        ]
+    },
+    {
+        "Index": 21,
+        "Name": "Donno, the Fighter",
+        "BookTitle": "Tarott Monster Origins",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 140, "Quantity": 10 } ],
+            [ { "ItemId": 143, "Quantity": 15 } ],
+            [ { "ItemId": 146, "Quantity": 15 } ]
+        ]
+    },
+    {
+        "Index": 22,
+        "Name": "Ozymandias, the Kingslayer",
+        "BookTitle": "The Edge of Solemn",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 292, "Quantity": 3 } ],
+            [ { "ItemId": 295, "Quantity": 1 } ],
+            [ { "ItemId": 297, "Quantity": 3 } ]
+        ]
+    },
+    {
+        "Index": 23,
+        "Name": "Zeig, the Ghost Knight",
+        "BookTitle": "The Final Battle",
+        "Source": "Marketplace",
+        "Requirements": [
+            [ { "ItemId": 293, "Quantity": 3 } ],
+            [ { "ItemId": 290, "Quantity": 3 } ],
+            [ { "ItemId": 298, "Quantity": 3 } ]
+        ]
+    }
+]

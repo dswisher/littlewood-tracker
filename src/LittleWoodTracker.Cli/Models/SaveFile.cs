@@ -106,5 +106,18 @@ namespace LittleWoodTracker.Cli.Models
         /// </remarks>
         [JsonPropertyName("structureUpgradeEXP")]
         public required int[] StructureUpgradeExp { get; set; }
+
+        /// <summary>
+        /// The gift/progression level for each of the 24 travelers (index 0–23).
+        /// 0 = never visited, 1 = gave first gift, 2 = gave second gift, 3 = donated book to the Grand Library.
+        /// </summary>
+        public required int[] TravelerLevel { get; set; }
+
+        /// <summary>
+        /// Cumulative count of each item sold at the Marketplace, indexed by item ID.
+        /// Used to determine when a traveler is eligible to visit.
+        /// </summary>
+        [JsonPropertyName("inventorySOLD")]
+        public required int[] InventorySold { get; set; }
     }
 }

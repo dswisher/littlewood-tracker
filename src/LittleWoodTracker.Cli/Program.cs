@@ -45,6 +45,8 @@ namespace LittleWoodTracker.Cli
 
                 PrintStructureUpgrades(gameData, save);
 
+                PrintMissingBooks(gameData, save);
+
                 Console.WriteLine("Achievements:");
                 PrintNumericAchievement(gameData, "itemsGathered", save.ItemsGathered);
                 PrintNumericAchievement(gameData, "treesChopped", save.TreesChopped);
@@ -66,6 +68,53 @@ namespace LittleWoodTracker.Cli
             {
                 Console.WriteLine(ex);
                 return 1;
+            }
+        }
+
+
+        private static void PrintMissingBooks(GameData gameData, SaveFile save)
+        {
+            // Only show this section if any traveler has visited (proxy for library being accessible)
+            if (save.TravelerLevel.All(v => v == 0))
+            {
+                return;
+            }
+
+            var missing = gameData.TravelersByIndex.Values
+                .Where(t => t.Index < save.TravelerLevel.Length && save.TravelerLevel[t.Index] < 3)
+                .OrderBy(t => t.Index)
+                .ToList();
+
+            if (missing.Count == 0)
+            {
+                return;
+            }
+
+            var donated = gameData.TravelersByIndex.Values.Count(t => t.Index < save.TravelerLevel.Length && save.TravelerLevel[t.Index] >= 3);
+
+            Console.WriteLine($"Missing Library Books ({donated}/{gameData.TravelersByIndex.Count}):");
+
+            foreach (var traveler in missing)
+            {
+                var visits = save.TravelerLevel[traveler.Index];
+                Console.WriteLine($"    \"{traveler.BookTitle}\" - {traveler.Name} ({visits}/3 visits)");
+
+                if (traveler.Requirements != null && visits < traveler.Requirements.Count)
+                {
+                    var reqs = traveler.Requirements[visits];
+                    var parts = reqs.Select(r =>
+                    {
+                        var itemName = gameData.GetItemName(r.ItemId);
+                        var sold = r.ItemId < save.InventorySold.Length ? save.InventorySold[r.ItemId] : 0;
+                        return $"{itemName} ({sold}/{r.Quantity} sold)";
+                    });
+
+                    Console.WriteLine($"        Next visit: sell {string.Join(" and ", parts)}");
+                }
+                else if (traveler.Requirements == null)
+                {
+                    Console.WriteLine($"        Next visit: explore {traveler.Source}");
+                }
             }
         }
 

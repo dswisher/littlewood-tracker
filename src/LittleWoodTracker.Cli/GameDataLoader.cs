@@ -41,6 +41,11 @@ namespace LittleWoodTracker.Cli
                 data.UpgradeCosts[(cost.Level, cost.Slot)] = cost;
             }
 
+            foreach (var traveler in LoadEmbeddedList<TravelerInfo>("TravelerList"))
+            {
+                data.TravelersByIndex[traveler.Index] = traveler;
+            }
+
             // Return what we've built
             return data;
         }
