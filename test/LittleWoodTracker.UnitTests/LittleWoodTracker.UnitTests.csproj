@@ -23,6 +23,9 @@
       <EmbeddedResource Include="SaveFiles\shadow-d1-s3.json" />
       <EmbeddedResource Include="SaveFiles\bruno-d125-s98901.json" />
       <EmbeddedResource Include="SaveFiles\bruno-d125-s99042.json" />
+      <EmbeddedResource Include="SaveFiles\bruno-d130-s104285.json" />
+      <EmbeddedResource Include="SaveFiles\myla-d1-s0.json" />
+      <EmbeddedResource Include="SaveFiles\myla-d1-s15.json" />
     </ItemGroup>
 
     <ItemGroup>

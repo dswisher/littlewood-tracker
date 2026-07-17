@@ -30,6 +30,17 @@ namespace LittleWoodTracker.Cli
 
             data.NumericAchievements.AddRange(LoadEmbeddedList<NumericAchievement>("NumericAchievements"));
 
+            // Load structure upgrade data
+            foreach (var target in LoadEmbeddedList<DonationTargetInfo>("DonationTargetList"))
+            {
+                data.DonationTargetsByIndex[target.Index] = target;
+            }
+
+            foreach (var cost in LoadEmbeddedList<UpgradeCostEntry>("UpgradeCosts"))
+            {
+                data.UpgradeCosts[(cost.Level, cost.Slot)] = cost;
+            }
+
             // Return what we've built
             return data;
         }

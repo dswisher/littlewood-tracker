@@ -43,6 +43,8 @@ namespace LittleWoodTracker.Cli
                 PrintMissing("Structures", gameData.Structures, parsed.MapItems);
                 PrintMissing("Crops", gameData.Crops, parsed.MapItems);
 
+                PrintStructureUpgrades(gameData, save);
+
                 Console.WriteLine("Achievements:");
                 PrintNumericAchievement(gameData, "itemsGathered", save.ItemsGathered);
                 PrintNumericAchievement(gameData, "treesChopped", save.TreesChopped);
@@ -64,6 +66,35 @@ namespace LittleWoodTracker.Cli
             {
                 Console.WriteLine(ex);
                 return 1;
+            }
+        }
+
+
+        private static void PrintStructureUpgrades(GameData gameData, SaveFile save)
+        {
+            var upgradable = gameData.DonationTargetsByIndex
+                .OrderBy(kvp => kvp.Value.Name)
+                .Where(kvp => GameData.IsUnlocked(kvp.Value, save))
+                .Select(kvp => new
+                {
+                    kvp.Value.Name,
+                    Exp = kvp.Key < save.StructureUpgradeExp.Length ? save.StructureUpgradeExp[kvp.Key] : 0,
+                    Cost = gameData.GetNextUpgradeCost(kvp.Key < save.StructureUpgradeExp.Length ? save.StructureUpgradeExp[kvp.Key] : 0)
+                })
+                .Where(x => x.Cost != null)
+                .ToList();
+
+            if (upgradable.Count == 0)
+            {
+                return;
+            }
+
+            Console.WriteLine("Structure Upgrades:");
+
+            foreach (var s in upgradable)
+            {
+                var level = 1 + s.Exp / 3;
+                Console.WriteLine($"    {s.Name}: Level {level} -> {s.Cost!.ItemName} x{s.Cost.Quantity}");
             }
         }
 

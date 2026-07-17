@@ -5,3 +5,6 @@ obj
 .idea
 *.user
 
+# Silly MAC stuff
+.DS_Store
+

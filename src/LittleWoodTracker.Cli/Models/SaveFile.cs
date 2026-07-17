@@ -1,8 +1,12 @@
 // Copyright (c) Doug Swisher. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
+
 namespace LittleWoodTracker.Cli.Models
 {
+    [SuppressMessage("ReSharper", "PropertyCanBeMadeInitOnly.Global", Justification = "Deserialized")]
     public class SaveFile
     {
         /// <summary>
@@ -82,5 +86,25 @@ namespace LittleWoodTracker.Cli.Models
         /// The items in the casino slot machine.
         /// </summary>
         public required int[] CasinoSlotId { get; set; }
+
+        /// <summary>
+        /// Whether a blueprint has been discovered and/or built.
+        /// </summary>
+        /// <remarks>
+        /// The index in the array is the blueprint ID.
+        /// A value of 0 indicates that blueprint is unknown, 1 indicates that it has
+        /// been discovered but not built, and 2 indicates the blueprint has been built.
+        /// </remarks>
+        public required int[] DiscoverLevel { get; set; }
+
+        /// <summary>
+        /// The upgrade experience for each structure, indexed by structure index.
+        /// </summary>
+        /// <remarks>
+        /// The level is derived as: level = 1 + (exp / 3). Maximum level is 10.
+        /// The remainder (exp % 3) indicates progress within the current level (0, 1, or 2 slots filled).
+        /// </remarks>
+        [JsonPropertyName("structureUpgradeEXP")]
+        public required int[] StructureUpgradeExp { get; set; }
     }
 }

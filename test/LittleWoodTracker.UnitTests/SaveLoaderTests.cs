@@ -11,6 +11,44 @@ namespace LittleWoodTracker.UnitTests
 {
     public class SaveLoaderTests
     {
+        // NOTEs on saves:
+        // bruno-d125-s98901.json
+        //      Baseline for my main save
+        // bruno-d125-s99042.json
+        //      (I think this is correct, but I may have conflated the saves)
+        //      Caught two minnows
+        //      Caught 2 flutterfly (1 catch, bonus item?)
+        //      Picked one weed
+        // myla-d1-s0.json
+        //      Started the game and saved without even moving.
+        // myla-d1-s15.json
+        //      Talked to Willow
+        //      Opened two chests
+        //      Obtained blueprint for My House
+        // shadow-d1-s3.json
+        //      Started the game, took 3 steps, and saved
+
+
+        [Fact]
+        public void CanLoadMylaDay1Step15()
+        {
+            // Act
+            SaveFile save;
+            using (var stream = OpenEmbedded("myla-d1-s15"))
+            {
+                save = SaveLoader.LoadSave(stream);
+            }
+
+            // Assert
+            save.PlayerName.Should().Be("Myla");
+            save.DaysPlayed.Should().Be(1);
+            save.Steps.Should().Be(15);
+
+            // We were just given the blueprint for our house
+            save.DiscoverLevel[120].Should().Be(1);
+        }
+
+
         [Fact]
         public void CanLoadShadowDay1Step3()
         {

@@ -16,5 +16,7 @@
       <EmbeddedResource Include="Data\NumericAchievements.json" />
       <EmbeddedResource Include="Data\BlueprintList.json" />
       <EmbeddedResource Include="Data\ItemList.json" />
+      <EmbeddedResource Include="Data\DonationTargetList.json" />
+      <EmbeddedResource Include="Data\UpgradeCosts.json" />
     </ItemGroup>
 </Project>

@@ -1,0 +1,18 @@
+[
+    { "Index":  20, "Name": "Tavern",                "BlueprintId": 160 },
+    { "Index":  21, "Name": "Museum",                "BlueprintId": 161 },
+    { "Index":  22, "Name": "Lumber Mill",           "BlueprintId": 162 },
+    { "Index":  23, "Name": "My Office",             "BlueprintId": 163 },
+    { "Index":  25, "Name": "General Shop",          "BlueprintId": 165 },
+    { "Index":  27, "Name": "Smelter",               "BlueprintId": 167 },
+    { "Index":  28, "Name": "Air Balloon Platform",  "BlueprintId": 168 },
+    { "Index":  29, "Name": "Coffee Shop",           "BlueprintId": 169 },
+    { "Index":  31, "Name": "Decor Shop",            "BlueprintId": 171 },
+    { "Index":  36, "Name": "Crafting Workshop",     "BlueprintId": 176 },
+    { "Index":  37, "Name": "Beauty Salon",          "BlueprintId": 177 },
+    { "Index":  50, "Name": "Endless Forest",        "BlueprintId": null },
+    { "Index":  51, "Name": "Dust Cavern",           "BlueprintId": null },
+    { "Index":  52, "Name": "Port City Deluca",      "BlueprintId": null },
+    { "Index":  53, "Name": "Grand Library",         "BlueprintId": null },
+    { "Index":  54, "Name": "Master Forge",          "BlueprintId": null }
+]
