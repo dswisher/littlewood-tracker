@@ -46,6 +46,8 @@ namespace LittleWoodTracker.Cli
                 data.TravelersByIndex[traveler.Index] = traveler;
             }
 
+            data.Recipes.AddRange(LoadEmbeddedList<RecipeInfo>("RecipeList"));
+
             // Return what we've built
             return data;
         }

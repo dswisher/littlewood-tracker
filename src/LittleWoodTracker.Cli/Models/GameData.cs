@@ -22,6 +22,11 @@ namespace LittleWoodTracker.Cli.Models
         public Dictionary<int, TravelerInfo> TravelersByIndex { get; } = [];
 
         /// <summary>
+        /// All 120 tavern recipes.
+        /// </summary>
+        public List<RecipeInfo> Recipes { get; } = [];
+
+        /// <summary>
         /// All known donation targets, keyed by their structureUpgradeEXP array index.
         /// </summary>
         public Dictionary<int, DonationTargetInfo> DonationTargetsByIndex { get; } = [];

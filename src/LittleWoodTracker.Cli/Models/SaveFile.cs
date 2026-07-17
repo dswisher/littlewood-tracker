@@ -119,5 +119,29 @@ namespace LittleWoodTracker.Cli.Models
         /// </summary>
         [JsonPropertyName("inventorySOLD")]
         public required int[] InventorySold { get; set; }
+
+        /// <summary>
+        /// Which Bubble Pot recipes have been unlocked (index 0–39). 0 = locked, 1 = unlocked.
+        /// </summary>
+        public required int[] BubblePotRecipeUnlocked { get; set; }
+
+        /// <summary>
+        /// Which Sizzle Pan recipes have been unlocked (index 0–39). 0 = locked, 1 = unlocked.
+        /// Available after Tavern reaches level 3.
+        /// </summary>
+        public required int[] SizzlePanRecipeUnlocked { get; set; }
+
+        /// <summary>
+        /// Which Chop Board recipes have been unlocked (index 0–39). 0 = locked, 1 = unlocked.
+        /// Available after Tavern reaches level 6.
+        /// </summary>
+        public required int[] ChopBoardRecipeUnlocked { get; set; }
+
+        /// <summary>
+        /// The global recipe ID (0–119) currently being hinted at by the daily hint panel.
+        /// -1 means no hint is active (all recipes discovered, or today's hint was already fulfilled).
+        /// </summary>
+        [JsonPropertyName("recipeHintID")]
+        public required int RecipeHintId { get; set; }
     }
 }

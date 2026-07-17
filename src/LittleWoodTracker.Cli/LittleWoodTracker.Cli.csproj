@@ -19,5 +19,6 @@
       <EmbeddedResource Include="Data\DonationTargetList.json" />
       <EmbeddedResource Include="Data\UpgradeCosts.json" />
       <EmbeddedResource Include="Data\TravelerList.json" />
+      <EmbeddedResource Include="Data\RecipeList.json" />
     </ItemGroup>
 </Project>

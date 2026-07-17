@@ -47,6 +47,8 @@ namespace LittleWoodTracker.Cli
 
                 PrintMissingBooks(gameData, save);
 
+                PrintMissingRecipes(gameData, save);
+
                 Console.WriteLine("Achievements:");
                 PrintNumericAchievement(gameData, "itemsGathered", save.ItemsGathered);
                 PrintNumericAchievement(gameData, "treesChopped", save.TreesChopped);
@@ -68,6 +70,71 @@ namespace LittleWoodTracker.Cli
             {
                 Console.WriteLine(ex);
                 return 1;
+            }
+        }
+
+
+        private static void PrintMissingRecipes(GameData gameData, SaveFile save)
+        {
+            // Suppress entirely if the Tavern has not been built
+            if (save.DiscoverLevel.Length <= 160 || save.DiscoverLevel[160] != 2)
+            {
+                return;
+            }
+
+            var tavernLevel = 1 + save.StructureUpgradeExp[20] / 3;
+
+            var applianceInfo = new[]
+            {
+                (Label: "Bubble Pot",  Appliance: "BubblePot",  UnlockLevel: 1, Unlocked: save.BubblePotRecipeUnlocked),
+                (Label: "Sizzle Pan",  Appliance: "SizzlePan",  UnlockLevel: 3, Unlocked: save.SizzlePanRecipeUnlocked),
+                (Label: "Chop Board",  Appliance: "ChopBoard",  UnlockLevel: 6, Unlocked: save.ChopBoardRecipeUnlocked),
+            };
+
+            // Check if at least one appliance is unlocked before printing the header
+            if (tavernLevel < applianceInfo[0].UnlockLevel)
+            {
+                return;
+            }
+
+            Console.WriteLine("Missing Recipes:");
+
+            foreach (var (label, appliance, unlockLevel, unlocked) in applianceInfo)
+            {
+                if (tavernLevel < unlockLevel)
+                {
+                    Console.WriteLine($"    {label} (need Tavern level {unlockLevel}, 40 recipes)");
+                    continue;
+                }
+
+                var recipes = gameData.Recipes
+                    .Where(r => r.Appliance == appliance)
+                    .ToList();
+
+                var missing = recipes
+                    .Where(r =>
+                    {
+                        var localId = r.GlobalId - (appliance == "BubblePot" ? 0 : appliance == "SizzlePan" ? 40 : 80);
+                        return localId < unlocked.Length && unlocked[localId] == 0;
+                    })
+                    .OrderBy(r => r.Name)
+                    .ToList();
+
+                if (missing.Count == 0)
+                {
+                    Console.WriteLine($"    {label} (all {recipes.Count} recipes known)");
+                    continue;
+                }
+
+                Console.WriteLine($"    {label} ({missing.Count} missing):");
+
+                foreach (var r in missing)
+                {
+                    var ing1 = gameData.GetItemName(r.Ingredient1Id);
+                    var ing2 = gameData.GetItemName(r.Ingredient2Id);
+                    var hint = (save.RecipeHintId >= 0 && r.GlobalId == save.RecipeHintId) ? "  <- today's hint" : string.Empty;
+                    Console.WriteLine($"        {r.Name} ({ing1} + {ing2}){hint}");
+                }
             }
         }
 
